@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-top">
+        <h1>🎯 Student Placement Tracker</h1>
+        <button id="themeToggle" class="theme-btn">🌙</button>
+    </div>
+    <p>Manage your placement preparation and applications</p>
+</header>
+
+<main>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="card">
+            <h3>Applications</h3>
+            <p id="totalApplications">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Shortlisted</h3>
+            <p id="shortlisted">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Interviews</h3>
+            <p id="interviews">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Skills</h3>
+            <p id="skillsCount">0</p>
+        </div>
+    </section>
+
+    <!-- Status Breakdown Chart -->
+    <section class="box">
+        <h2>📊 Application Status Overview</h2>
+        <div id="chartBars" class="chart-bars">
+            <p class="empty-text">Add applications to see the chart.</p>
+        </div>
+    </section>
+
+    <!-- Profile -->
+    <section class="box">
+        <h2>👤 Student Profile</h2>
+
+        <input type="text" id="studentName" placeholder="Student Name">
+        <input type="text" id="branch" placeholder="Branch">
+
+        <input type="text" id="skills"
+               placeholder="Skills e.g. C++, SQL, HTML">
+
+        <input type="text" id="resumeLink"
+               placeholder="Resume / Portfolio Link (URL)">
+
+        <button onclick="saveProfile()">Save Profile</button>
+
+        <p id="profileMessage"></p>
+    </section>
+
+    <!-- Application -->
+    <section class="box">
+        <h2>➕ Add Company Application</h2>
+
+        <input type="text" id="company"
+               placeholder="Company Name">
+
+        <input type="text" id="role"
+               placeholder="Role Applied For">
+
+        <select id="status">
+            <option value="Applied">Applied</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Interview">Interview</option>
+            <option value="Selected">Selected</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+
+        <button onclick="addApplication()">
+            Add Application
+        </button>
+    </section>
+
+    <!-- Applications List -->
+    <section class="box">
+        <div class="list-header">
+            <h2>📋 My Applications</h2>
+            <button onclick="exportData()" class="export-btn">⬇ Export CSV</button>
+        </div>
+
+        <div class="filter-row">
+            <input type="text" id="searchBox" placeholder="🔍 Search company..." oninput="displayApplications()">
+            <select id="filterStatus" onchange="displayApplications()">
+                <option value="All">All Status</option>
+                <option value="Applied">Applied</option>
+                <option value="Shortlisted">Shortlisted</option>
+                <option value="Interview">Interview</option>
+                <option value="Selected">Selected</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+
+        <div id="applicationList">
+            <p>No applications added yet.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>Built with HTML, CSS & JavaScript · Data stored locally in your browser</p>
+</footer>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
